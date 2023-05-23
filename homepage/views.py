@@ -5,3 +5,6 @@ def index(request):
     template = loader.get_template('home/index.html')
     context = {}
     return HttpResponse(template.render(context, request))
+
+def summary(request):
+    return render(request, 'summary/nav.html')
