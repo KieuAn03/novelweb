@@ -2,8 +2,8 @@
 {% load static %}
 {%block css_js%}
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
-  <link rel="stylesheet" href="{% static 'css/home-style.css' %}"/>
   <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+  <link rel="stylesheet" href="{% static 'css/home-style.css' %}"/>
 {%endblock css_js%}
 {%block header%}
   <section>
@@ -21,7 +21,8 @@
       <div class="row gy-3" >
         {%for truyen in truyens %}
         <div class=" col-sm-6 col-md-4 col-lg-3 col-xl-3">
-          <div class="card rounded-0"><img alt="Card image cap" class="card-img-top img-fluid" src="{{truyen.img.url}}" />
+          <div class="card rounded-0">
+              <img alt="Card image cap" class="card-img-top " src="{{truyen.img.url}}" />
             <div class="card-block border-top rounded-0 card text-center">
               <h4 class="card-title">
                 <a href="">{{truyen.title}}</a>
@@ -29,6 +30,7 @@
               <p class="card-text">{{truyen.description}}</p>
             </div>
           </div>
+         
         </div>
         {%endfor %}
     </section>
