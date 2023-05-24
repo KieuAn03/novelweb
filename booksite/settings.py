@@ -75,18 +75,10 @@ WSGI_APPLICATION = 'booksite.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'mssql',
-            'NAME':'KTPYTHON',
-            'USER': 'ankieu',
-            'PASSWORD': '@nki3u2003',
-            'HOST': 'kieuan03.database.windows.net',
-            'PORT': '',
-
-            'OPTIONS': {
-                'driver': 'ODBC Driver 17 for SQL Server',
-            },
-        },
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 
