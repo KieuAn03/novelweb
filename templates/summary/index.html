@@ -14,23 +14,9 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     {% comment %} js {% endcomment %}
-
-    <script type="module">
-      const { createApp } = Vue
-      const app = createApp({
-        data() {
-          return {
-            message: 'Hello Vue!',
-          }
-        },
-      })
-      //app.config.compilerOptions.delimiters = ['[[', ']]']
-      app.mount('#app')
-    </script>
   </head>
   <body class="lightmode">
     <main>
-      <div id="app"></div>
     <header>
     {% block footer %}
     
