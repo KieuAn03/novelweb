@@ -1,9 +1,14 @@
 {% extends "base.html" %}
-{% load static  %}
+{% load static %}
 {% block title %}summary{% endblock %}
 
+{%block css_js%}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+  <link rel="stylesheet" href="{% static 'css/home-style.css' %}"/>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+{%endblock css_js%}
 
-{% block body %}
+{%block body%}
   <div class="relative mt-0 -mx-8 px-8 desktop:-mx-20 desktop:px-20 index_desktop_container__Enu4s" bis_skin_checked="1">
       <div class="absolute bg-cover inset-0 index_desktop_background__0wFhc" bis_skin_checked="1">
       </div>
@@ -62,4 +67,4 @@
           display: block;
       }
   </style>
-{% endblock %}
+{%endblock body%}
