@@ -19,67 +19,17 @@
       <div class ="container mb-5">
       <h1 class="display-4 text-xs-center m-y-3 text-muted" id="speakers">Danh sách truyện</h1>
       <div class="row gy-3" >
+        {%for truyen in truyens %}
         <div class=" col-sm-6 col-md-4 col-lg-3 col-xl-3">
-          <div class="card rounded-0"><img alt="Card image cap" class="card-img-top img-fluid" src="{% static '/image/truyen/bia.jpg' %}" />
+          <div class="card rounded-0"><img alt="Card image cap" class="card-img-top img-fluid" src="{{truyen.img.url}}" />
             <div class="card-block border-top rounded-0 card text-center">
               <h4 class="card-title">
-                <a href="">No game no life</a>
+                <a href="">{{truyen.title}}</a>
               </h4>
-              <p class="card-text">Câu chuyện về hai anh em Shiro và Sora</p>
+              <p class="card-text">{{truyen.description}}</p>
             </div>
           </div>
         </div>
-        <div class=" col-sm-6 col-md-4 col-lg-3 col-xl-3">
-          <div class="card rounded-0"><img alt="Card image cap" class="card-img-top img-fluid" src="{% static '/image/truyen/bia.jpg' %}" />
-            <div class="card-block border-top rounded-0 card text-center">
-              <h4 class="card-title">
-                <a href="">No game no life</a>
-              </h4>
-              <p class="card-text">Câu chuyện về hai anh em Shiro và Sora</p>
-            </div>
-          </div>
-        </div>
-        <div class=" col-sm-6 col-md-4 col-lg-3 col-xl-3">
-          <div class="card rounded-0"><img alt="Card image cap" class="card-img-top img-fluid" src="{% static '/image/truyen/bia.jpg' %}" />
-            <div class="card-block border-top rounded-0 card text-center">
-              <h4 class="card-title">
-                <a href="">No game no life</a>
-              </h4>
-              <p class="card-text">Câu chuyện về hai anh em Shiro và Sora</p>
-            </div>
-          </div>
-        </div>
-        <div class=" col-sm-6 col-md-4 col-lg-3 col-xl-3">
-          <div class="card rounded-0"><img alt="Card image cap" class="card-img-top img-fluid" src="{% static '/image/truyen/bia.jpg' %}" />
-            <div class="card-block border-top rounded-0 card text-center">
-              <h4 class="card-title">
-                <a href="">No game no life</a>
-              </h4>
-              <p class="card-text">Câu chuyện về hai anh em Shiro và Sora</p>
-            </div>
-          </div>
-        </div>
-        <div class=" col-sm-6 col-md-4 col-lg-3 col-xl-3">
-          <div class="card rounded-0"><img alt="Card image cap" class="card-img-top img-fluid" src="{% static '/image/truyen/bia.jpg' %}" />
-            <div class="card-block border-top rounded-0 card text-center">
-              <h4 class="card-title">
-                <a href="">No game no life</a>
-              </h4>
-              <p class="card-text">Câu chuyện về hai anh em Shiro và Sora</p>
-            </div>
-          </div>
-        </div>
-        <div class=" col-sm-6 col-md-4 col-lg-3 col-xl-3">
-          <div class="card rounded-0"><img alt="Card image cap" class="card-img-top img-fluid" src="{% static '/image/truyen/bia.jpg' %}" />
-            <div class="card-block border-top rounded-0 card text-center">
-              <h4 class="card-title">
-                <a href="">No game no life</a>
-              </h4>
-              <p class="card-text">Câu chuyện về hai anh em Shiro và Sora</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
+        {%endfor %}
     </section>
 {%endblock body%}

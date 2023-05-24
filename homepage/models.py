@@ -3,8 +3,9 @@ from django.contrib.auth.models import User
 
 class truyen (models.Model):
     id = models.AutoField(primary_key=True)
-    author = models.CharField(max_length=50)
+    img = models.ImageField(upload_to='truyen/')
     title = models.CharField(max_length=100)
+    author = models.CharField(max_length=50)
     description = models.TextField(null=True)
     date_published = models.DateTimeField(auto_now_add=True)
     def __str__ (self):
