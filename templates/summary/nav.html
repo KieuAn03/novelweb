@@ -120,8 +120,10 @@
                         <div class="text-base mb-2.5 metadata_item__bET16 ">
                             <span class="metadata_label__DARMb mr-1 capitalize">Thể loại:&nbsp;</span>
                             <span class="metadata_info__LnFyC whitespace-normal">
-                                    <span class="badge text-bg-secondary">{{truyen_ct.title}}</span>
-                                    <span class="badge text-bg-success">Success</span>
+                            {% for ct  in cts  %}
+                                    <span class="badge text-bg-secondary">{{ct.title}}</span>
+                                    <span class="badge text-bg-success">{{ct.content}}</span>                            
+                            {% endfor %}
                             </span>
                         </div>
                         <div class="text-base mb-2.5 metadata_item__bET16 ">

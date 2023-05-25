@@ -11,7 +11,9 @@ def index(request):
 def deltail(request):
     id = request.GET.get('id','')
     truyens = truyen.objects.filter(id=id)
+    ct = category.objects.filter(id=id)
     context = {
         'truyens' : truyens,
+        'cts': ct 
     }
     return render(request, 'summary/nav.html',context)
