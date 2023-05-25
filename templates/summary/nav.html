@@ -3,69 +3,149 @@
 {% block title %}summary{% endblock %}
 
 {%block css_js%}
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
-  <link rel="stylesheet" href="{% static 'css/home-style.css' %}"/>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/home-style.css' %}"/>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> 
 {%endblock css_js%}
 
 {%block body%}
-  <div class="relative mt-0 -mx-8 px-8 desktop:-mx-20 desktop:px-20 index_desktop_container__Enu4s" bis_skin_checked="1">
-      <div class="absolute bg-cover inset-0 index_desktop_background__0wFhc" bis_skin_checked="1">
-      
-      </div>
-  </div>
-  <style>
-      @media (min-width: 768px)
-      .index_desktop_container__Enu4s {
-        min-height: 480px;
-      }
-      .px-8 {
-          padding-left: 2rem;
-          padding-right: 2rem;
-      }
-      .mt-0 {
-          margin-top: 0;
-      }
-
-      .-mx-8 {
-          margin-left: -2rem;
-          margin-right: -2rem;
-      }
-      .relative {
-          position: relative;
-      }
-      .index_desktop_background__0wFhc {
-          filter: blur(60px);
-      }
-      .bg-cover {
-          background-size: cover;
-      }
-      .inset-0 {
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-      }
-      .absolute {
-          position: absolute;
-      }
-      * {
-          --tw-shadow: 0 0 #0000;
-          --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
-          --tw-ring-offset-width: 0px;
-          --tw-ring-offset-color: #fff;
-          --tw-ring-color: rgba(59,130,246,0.5);
-          --tw-ring-offset-shadow: 0 0 #0000;
-          --tw-ring-shadow: 0 0 #0000;
-      }
-      *, :after, :before {
-          box-sizing: border-box;
-          border: 0 solid #e5e7eb;
-      }
-
-      user agent stylesheet
-      div {
-          display: block;
-      }
-  </style>
+<div class="main-wrapper maxWidthFullBody " style="padding-top: 60px;">
+    <div style="min-height: 90vh;">
+        <div class="relative mt-0 -mx-8 px-8 desktop:-mx-20 desktop:px-20 index_desktop_container__Enu4s" bis_skin_checked="1">
+            <div class="absolute bg-cover inset-0 index_desktop_background__0wFhc" bis_skin_checked="1" >
+                <picture >
+                    <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/acnu_thumb_640x960_b07e8689be6b_1672401433599_bizsshn0-51c95561da7a-1678437333592-SA9mEN2G.jpg?v=0&amp;maxW=420&amp;format=webp" type="image/webp">
+                    <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/acnu_thumb_640x960_b07e8689be6b_1672401433599_bizsshn0-51c95561da7a-1678437333592-SA9mEN2G.jpg?v=0&amp;maxW=420&amp;format=jpg" type="image/jpeg">
+                    <img alt="Ác Nữ Khi Yêu" title="Ác Nữ Khi Yêu" src="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/acnu_thumb_640x960_b07e8689be6b_1672401433599_bizsshn0-51c95561da7a-1678437333592-SA9mEN2G.jpg?v=0&amp;maxW=420&amp;format=jpg" class="block w-full h-full" width="420" height="630">
+                </picture>
+            </div>
+            <div class="relative flex flex-wrap">
+                <div class="index_desktop_image__27E7e" >
+                    <picture>
+                        <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/acnu_thumb_640x960_b07e8689be6b_1672401433599_bizsshn0-51c95561da7a-1678437333592-SA9mEN2G.jpg?v=0&amp;maxW=420&amp;format=webp" type="image/webp">
+                        <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/acnu_thumb_640x960_b07e8689be6b_1672401433599_bizsshn0-51c95561da7a-1678437333592-SA9mEN2G.jpg?v=0&amp;maxW=420&amp;format=jpg" type="image/jpeg">
+                        <img alt="Ác Nữ Khi Yêu" title="Ác Nữ Khi Yêu" src="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/acnu_thumb_640x960_b07e8689be6b_1672401433599_bizsshn0-51c95561da7a-1678437333592-SA9mEN2G.jpg?v=0&amp;maxW=420&amp;format=jpg" class="block w-full h-full" width="420" height="630">
+                    </picture>
+                </div>
+                <div class="brg relative flex-1 pl-12" >
+                    <div class="absolute -top-4 mr-0 py-1 px-3 ml-2 right-0"></div>
+                    <h1 class="text-2xl font-bold desktop:text-3xl desktop:pt-0 desktopLg:text-4xl">Ác Nữ Khi Yêu</h1>
+                    <div class="my-5 index_desktop_socialWrapper__vCihY flex items-end  undefined">
+                        <div class="flex mobile:flex-col text-center py-2 px-2.5 no-underline capitalize desktop:min-w-0 mobile:py-0 mobile:px-4 social_item__0U5H7 comics flex items-center mobile:flex-col null flex-row">
+                            <span class="capitalize block whitespace-nowrap desktop:text-base mobile:text-sm  undefined tablet:ml-2 tablet:mt-0">
+                                <span class="social_iconWrap__TNbRs inline-block">
+                                    <span class=" social_icon__ejqlV inline-flex justify-center /v1/IcRead.svg">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+                                            <path d="M0 0h40v40H0z" fill="none"></path>
+                                            <path d="M39.971 19.558a1.757 1.757 0 00-1.942-1.133 2.386 2.386 0 01-.285 0c-.108 0-.217-.007-.362 0 0-.013-.007-.029-.011-.049a8.068 8.068 0 00-7.311-6.362 8.06 8.06 0 00-8.11 5.322c0 .015-.01.029-.016.043a5.644 5.644 0 00-3.843-.017c-1.591-3.748-4.434-5.572-8.2-5.3-3.729.272-6.249 2.47-7.307 6.362h-.975A1.581 1.581 0 00.001 19.99a1.568 1.568 0 001.6 1.58c.3.006.6 0 .9 0h.12v.023a8.052 8.052 0 008.259 6.39 8.067 8.067 0 007.584-7.051.621.621 0 01.208-.349 2.195 2.195 0 012.056-.293 1.061 1.061 0 01.886.966 7.972 7.972 0 007.447 6.723c.146.008.291.012.436.012a8.012 8.012 0 007.748-5.834c.026-.092.045-.2.064-.3s.05-.273.058-.3a1.338 1.338 0 01.506 0l.164.016a1.8 1.8 0 001.938-1.135l.029-.75zm-5.59.446a4.779 4.779 0 01-1.422 3.412 4.8 4.8 0 01-3.406 1.431h-.008a4.871 4.871 0 01-4.892-4.809 4.826 4.826 0 011.406-3.435 4.81 4.81 0 013.418-1.441h.021a4.857 4.857 0 013.439 1.409 4.83 4.83 0 011.444 3.432zm-19.033.005a4.8 4.8 0 01-1.44 3.427 4.835 4.835 0 01-3.47 1.411 4.847 4.847 0 01-4.817-4.852 4.8 4.8 0 011.43-3.423 4.921 4.921 0 013.487-1.414h.028a4.891 4.891 0 014.782 4.851z" data-name="ic-read"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                                <span class="social_infoNumber__8SNKv">787.17K</span>
+                                    &nbsp;
+                                    Lượt xem
+                                </span>
+                        </div>
+                        <div class="flex mobile:flex-col text-center py-2 px-2.5 no-underline capitalize desktop:min-w-0 mobile:py-0 mobile:px-4 social_item__0U5H7 comics flex items-center mobile:flex-col null flex-row">
+                            <span class="social_iconWrap__TNbRs inline-block">
+                                <span class=" social_icon__ejqlV inline-flex justify-center /v1/IcLike.svg">
+                                    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M21.732 11.941a2.135 2.135 0 00-.386-.549l.12-.175a2.23 2.23 0 00.326-1.035 2.394 2.394 0 00-.181-1.086 2.26 2.26 0 00-.856-1.098 2.163 2.163 0 00-1.315-.374h-3.836V6.85a7.827 7.827 0 00-.071-1.623 4.933 4.933 0 00-.821-1.996 2.692 2.692 0 00-.868-.849 2.587 2.587 0 00-1.158-.374 2.344 2.344 0 00-1.206.224.763.763 0 00-.374.325.92.92 0 00-.132.474l.048 2.795a.815.815 0 01-.097.4L9.357 8.92c-.064.117-.16.309-.289.575l-.12.224a2.03 2.03 0 00-.41 1.248v8.886a.81.81 0 00.276.574.864.864 0 00.59.224h8.323a1.75 1.75 0 00.688-.137 1.696 1.696 0 00.567-.387 2.156 2.156 0 00.337-.324 2.764 2.764 0 00.41-.624 3.234 3.234 0 00.121-.35 1.195 1.195 0 00.096-.474 3.91 3.91 0 00-.024-.75 2.536 2.536 0 00.94-.923 1.877 1.877 0 00.29-.823 2.007 2.007 0 00-.096-.874.579.579 0 00-.072-.175 2.169 2.169 0 00.747-2.87zM6.028 9.296h-2.99a.984.984 0 00-.736.312 1.052 1.052 0 00-.302.761v10.558a1.052 1.052 0 00.302.761.984.984 0 00.736.312h2.99a.984.984 0 00.736-.312 1.056 1.056 0 00.301-.761V10.369a1.056 1.056 0 00-.302-.761.984.984 0 00-.735-.312z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="capitalize block whitespace-nowrap desktop:text-base mobile:text-sm undefined tablet:ml-2 tablet:mt-0">
+                                <span class="social_infoNumber__8SNKv">11.91K</span>
+                                    &nbsp;
+                                    Thích
+                                </span>   
+                            </span>                     
+                        </div>
+                        <div class="flex mobile:flex-col text-center py-2 px-2.5 no-underline capitalize desktop:min-w-0 mobile:py-0 mobile:px-4 social_item__0U5H7 comics flex items-center mobile:flex-col null flex-row">
+                            <span class="social_iconWrap__TNbRs inline-block">
+                                <span class=" social_icon__ejqlV inline-flex justify-center /v1/IcList.svg">
+                                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.745 0.329333L15.3589 0.732543C19.4082 1.74574 20.6452 3.88585 19.6981 8.20744L18.751 12.529C17.9392 16.2613 16.335 17.7708 13.3197 17.4606C12.8365 17.4192 12.3146 17.3262 11.7541 17.1815L10.1305 16.7679C6.10056 15.7444 4.85388 13.6146 5.80097 9.29301L6.74806 4.96108C6.94135 4.08229 7.17329 3.31722 7.46322 2.68656C8.59393 0.184591 10.5171 -0.487426 13.745 0.329333ZM12.8365 11.7743C13.1651 11.7743 13.455 11.5468 13.542 11.1953C13.6386 10.7818 13.4067 10.3579 13.0105 10.2545L10.1982 9.48944C9.81162 9.38605 9.41539 9.63418 9.31874 10.0477C9.2221 10.4613 9.45404 10.8852 9.84061 10.9886L12.6529 11.7536C12.6615 11.7549 12.6699 11.7562 12.6782 11.7575C12.7353 11.7664 12.7859 11.7743 12.8365 11.7743ZM15.6681 8.27981C15.9967 8.27981 16.2866 8.05236 16.3736 7.70084C16.4703 7.27695 16.2383 6.85307 15.8421 6.76002L11.1549 5.48836C10.7684 5.38497 10.3721 5.6331 10.2755 6.04665C10.1789 6.4602 10.4108 6.88408 10.7974 6.98747L15.4845 8.25913C15.4931 8.26045 15.5015 8.26176 15.5098 8.26305C15.5669 8.27193 15.6175 8.27981 15.6681 8.27981ZM10.6646 18.9088C10.9423 18.8104 10.9146 18.4363 10.6287 18.3656L9.49118 18.0843C4.80725 16.9004 3.20617 14.152 4.30008 9.17325L5.27465 4.74416C5.33221 4.49129 5.39124 4.24943 5.4529 4.01859C5.56231 3.60898 5.16457 3.21379 4.76465 3.35456L4.24041 3.5391C0.292385 4.89214 -0.761747 7.11198 0.511168 11.3085L1.78408 15.4839C3.06694 19.6805 5.14537 20.8115 9.0934 19.4585L10.6646 18.9088Z" fill="white">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </span>
+                            <span class="capitalize block whitespace-nowrap desktop:text-base mobile:text-sm undefined tablet:ml-2 tablet:mt-0">
+                                <span class="social_infoNumber__8SNKv">100</span>
+                                    &nbsp;
+                                    chương
+                                </span>
+                        </div>
+                    </div>
+                    <div class="flex items-center mb-10 index_desktop_btns__xkQWG desktop:flex-wrap">
+                        <span class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_primary__PzUTB banner-comic__read-now " title="">
+                            Đọc ngay
+                        </span>
+                        <span class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_primary__PzUTB  button_buttonTicket__qyP_b !ml-4 !mr-6 !shadow-sm mobile:!border-0 mobile:!text-base mobile:!p-0 mobile:!m-0 mobile:!inline-block mobile:!min-h-0 mobile:!font-normal mobile:capitalize " title="">
+                            Chương mới nhất
+                        </span>
+                        <span class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_white__jBVlZ button_comicAdd__US2RV " title="">
+                            <span class="button_icon__Il1Mq /v1/IcPlus.svg">
+                                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M21.697 11.258a1.01 1.01 0 00-.741-.302h-7.912V3.044a1.044 1.044 0 10-2.088 0v7.912H3.044a1.044 1.044 0 100 2.088h7.912v7.912a1.044 1.044 0 102.088 0v-7.912h7.912a1.049 1.049 0 00.741-1.786z"></path>
+                                </svg>
+                            </span>
+                                Yêu thích
+                        </span> 
+                    </div>
+                    <div class="banner-comic__meta">
+                        <div class="text-base mb-2.5 metadata_item__bET16 hidden">
+                            <span class="metadata_label__DARMb mr-1 capitalize">Chương mới nhất:&nbsp;</span>
+                            <span class="metadata_info__LnFyC whitespace-normal">
+                                <span class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_primary__PzUTB  button_buttonTicket__qyP_b !ml-4 !mr-6 !shadow-sm mobile:!border-0 mobile:!text-base mobile:!p-0 mobile:!m-0 mobile:!inline-block mobile:!min-h-0 mobile:!font-normal mobile:capitalize " title="">Chương mới nhất</span>
+                            </span>
+                        </div>
+                        <div class="text-base mb-2.5 metadata_item__bET16 ">
+                            <span class="metadata_label__DARMb mr-1 capitalize">Tác giả:&nbsp;</span>
+                            <span class="metadata_info__LnFyC whitespace-normal">
+                                <a class=" no-underline metadata_infoItem__5rfU0 " title="" href="#">Seo Gwijo</a>
+                            </span>
+                        </div>
+                        <div class="text-base mb-2.5 metadata_item__bET16 ">
+                            <span class="metadata_label__DARMb mr-1 capitalize">Hoạ sĩ:&nbsp;</span>
+                            <span class="metadata_info__LnFyC whitespace-normal">
+                                <a class=" no-underline metadata_infoItem__5rfU0 " title="" href="#">Chủ nhân tòa nhà quận Daechi</a>
+                            </span>
+                        </div>
+                        <div class="text-base mb-2.5 metadata_item__bET16 ">
+                            <span class="metadata_label__DARMb mr-1 capitalize">Thể loại:&nbsp;</span>
+                            <span class="metadata_info__LnFyC whitespace-normal">
+                                <a class=" no-underline metadata_infoItem__5rfU0 " title="" href="#">Tình Cảm</a>
+                                <a class=" no-underline metadata_infoItem__5rfU0 " title="" href="#">Giả Tưởng</a>
+                            </span>
+                        </div>
+                        <div class="text-base mb-2.5 metadata_item__bET16 ">
+                            <span class="metadata_label__DARMb mr-1 capitalize">Xếp hạng:&nbsp;</span>
+                            <span class="metadata_info__LnFyC whitespace-normal">
+                                <span class="metadata_infoItem__5rfU0 ">13+</span>
+                            </span>
+                        </div>
+                        <div class="text-base mb-2.5 metadata_item__bET16 ">
+                            <span class="metadata_label__DARMb mr-1 capitalize">Nội dung bởi:&nbsp;</span>
+                            <span class="metadata_info__LnFyC whitespace-normal">
+                                <span class="metadata_infoItem__5rfU0 ">DCC</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="pb-5 undefined desktop:text-lg desktopLg:text-xl ">
+                        <div class=" accordion_root__bscXK text-base desktopLg:text-xl">
+                            <div class=" undefined block">
+                                <span class="metadata_label__DARMb mr-1 capitalize">Mô tả<!-- -->:</span>  
+                                "Tôi sẽ bảo vệ các cục cưng của mình! Vì cuộc sống sau này của những người tôi u mê!" Fangirl bất chợt xuyên không vào idol của mình - nhân vật ác nữ của tiểu thuyết, chưa kịp vui sướng đã nhận ra ác nữ đó lại mang bệnh nan y, cơ thể yếu ớt gần đất xa trời! Kế hoạch cứu các mỹ nam khỏi cái chết
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>   
 {%endblock body%}
