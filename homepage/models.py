@@ -31,4 +31,6 @@ class category (models.Model):
     
 class truyen_category (models.Model):
     category = models.ForeignKey(category,on_delete=models.CASCADE)
-    truyen = models.ForeignKey(truyen, on_delete= models.CASCADE)
+    Truyen = models.ForeignKey(truyen, on_delete= models.CASCADE)
+    def __str__(self):
+        return self.category.title
