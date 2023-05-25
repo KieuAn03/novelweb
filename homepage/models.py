@@ -21,7 +21,6 @@ class chapter (models.Model):
         return self.title
     
 
-
 class category (models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=20)
