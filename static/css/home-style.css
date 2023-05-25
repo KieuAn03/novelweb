@@ -1,4 +1,9 @@
-
+.card-text{
+  font-size:50px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .card-img-top {
   /*height: 11vw;*/
   object-fit: cover;
