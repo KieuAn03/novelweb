@@ -8,6 +8,10 @@ def index(request):
         'truyens' : truyens
     }
     return render(request,'home/index.html',context)
-
-def summary(request):
-    return render(request, 'summary/nav.html')
+def deltail(request):
+    id = request.GET.get('id','')
+    truyens = truyen.objects.filter(id=id)
+    context = {
+        'truyens' : truyens,
+    }
+    return render(request, 'summary/nav.html',context)
