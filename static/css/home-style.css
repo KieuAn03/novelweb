@@ -1,22 +1,48 @@
 
 .card-img-top {
-    width: 100%;
-    object-fit: cover;
-} 
-.heighlist{
-width :100px ;
-object-fit: cover;
+  /*height: 11vw;*/
+  object-fit: cover;
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .card-img-top {
+      height: 260px;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .card-img-top {
+      height: 260px;
+  }
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .card-img-top {
+      height: 300px;
+  }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .card-img-top {
+      height: 400px;
+  }
+}
+.container2{
+  height: 300px;
+  width: 1500px;
+  margin: 0 auto;
+  }
+.heightimglist{
+  height: 400px;
+  width: inherit;
+  object-fit: cover;
 }
 .heightimg{
 height: 300px;
 width: inherit;
 object-fit: cover;
 }
-.container2{
-height: 300px;
-width: 1500px;
-margin: 0 auto;
-}
+
 
 
 .navbar-dark .nav-item .nav-link {

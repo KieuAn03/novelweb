@@ -1,10 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from .models import *
 def index(request):
-    template = loader.get_template('home/index.html')
-    context = {}
-    return HttpResponse(template.render(context, request))
-
-def summary(request):
-    return render(request, 'summary/nav.html')
+    truyens = truyen.objects.all()
+    context = {
+        'truyens' : truyens
+    }
+    return render(request,'home/index.html',context)
+def deltail(request):
+    id = request.GET.get('id','')
+    truyens = truyen.objects.filter(id=id)
+    context = {
+        'truyens' : truyens,
+    }
+    return render(request, 'summary/nav.html',context)
