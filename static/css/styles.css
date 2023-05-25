@@ -82,6 +82,7 @@ div {
 }       
 .flex-1 {
     flex: 1 1 0%;
+    background-color: rgba(200,200,210,.7)   
 }
 
 .py-1 {
@@ -140,6 +141,7 @@ blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
 @media (min-width: 768px){
     .index_desktop_image__27E7e {
         width: 24%;
+        background-color: rgba(210,210,210,.8);
     }
 }
 .index_desktop_image__27E7e img {
@@ -334,7 +336,7 @@ img {
     margin-bottom: .625rem;
 }
 .metadata_label__DARMb {
-    color: var(--meta_label_color,#bcbcbc);
+    color: var(--meta_label_color,#120101);
 }
 .mr-1 {
     margin-right: .25rem;
@@ -347,4 +349,29 @@ img {
 }
 .metadata_info__LnFyC a {
     color: var(--meta_info_link_color,#ea6016);
+}
+.accordion_root__bscXK {
+    color: var(--banner_info_color,#fff);
+}
+.whitespace-pre-wrap {
+    white-space: pre-wrap;
+}
+.accordion_more__ESPhR {
+    color: var(--meta_show_more_text_color,#bcbcbc);
+}
+.underline {
+    text-decoration: underline;
+}
+.text-sm {
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+.bgr{
+    background-color: rgba(200,200,210,.7)   
+}
+@media (min-width: 1200px){
+    .desktop\:text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
 }
