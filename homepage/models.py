@@ -8,6 +8,7 @@ class truyen (models.Model):
     author = models.CharField(max_length=50)
     description = models.TextField(null=True)
     date_published = models.DateTimeField(auto_now_add=True)
+    view_count = models.IntegerField(null=True, default=0)
     def __str__ (self):
         return self.title
     
@@ -18,7 +19,7 @@ class chapter (models.Model):
     content = models.TextField(null=True)
     date_published = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return self.title
+        return self.truyen.title + " : " + self.title
     
 
 class category (models.Model):
@@ -32,4 +33,16 @@ class truyen_category (models.Model):
     category = models.ForeignKey(category,on_delete=models.CASCADE)
     Truyen = models.ForeignKey(truyen, on_delete= models.CASCADE)
     def __str__(self):
-        return self.category.title
+        return self.Truyen.title + " : " + self.category.title
+class comment (models.Model):
+    id = models.AutoField(primary_key=True)
+    truyen = models.ForeignKey(truyen, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField(max_length=200)
+    date_published = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.user.username + " : " + self.truyen.title +" : "+ self.content[:10] + "..."
+class favorate (models.Model):
+    id = models.AutoField(primary_key=True)
+    truyen = models.ForeignKey(truyen, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
