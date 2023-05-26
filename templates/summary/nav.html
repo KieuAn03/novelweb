@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/home-style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="{% static 'js/bootstrap.min.js' %}"></script> 
 {%endblock css_js%}
 
@@ -120,8 +123,7 @@
                             <span class="metadata_label__DARMb mr-1 capitalize">Thể loại:&nbsp;</span>
                             <span class="metadata_info__LnFyC whitespace-normal">
                             {% for ct  in cts  %}
-                                    <span class="badge text-bg-secondary">{{ct.category}}</span>
-                                    <span class="badge text-bg-success">{{ct.category}}</span>                            
+                                    <span class="badge text-bg-secondary">{{ct.category}}</span>                  
                             {% endfor %}
                             </span>
                         </div>
@@ -151,18 +153,21 @@
         </div>  
         <div class="tabs tabs_tabs-comments__2Wh_C">
             <div class="tabs_heading__hnB1c relative mb-6 -ml-24 -mr-24 px-24 tablet:flex tablet:justify-items-start ">
-                <div class="tabs_headingInner__YDSev">
-                    <ul class="flex justify-center mobile:justify-around">
-                        <div class="tab_root__UdDNO tab_isActive__ibKCb  tabs-comments " data-key="comic-chapters">
-                            <span class="tab_link__d7Ugf">chương</span>
+                <div class=" ">
+                    <ul class="tab flex justify-center mobile:justify-around">
+                        <div class="tab_root__UdDNO tab_isActive__ibKCb  tabs-comments active tab-item" data-key="comic-chapters">
+                            <span class="tab_link__d7Ugf">Chương</span>
                         </div>
-                        <div class="tab_root__UdDNO   tabs-comments " data-key="comment">
-                            <span class="tab_link__d7Ugf">Bình luận</span>
+                        <div class="tab_root__UdDNO   tabs-comments tab-item" data-key="comment">
+                            <span class="tab_link__d7Ugf">Bình luận (40)</span>
                         </div>
+                        <div class="line"></div>
                     </ul>
+                    
                 </div>
-            </div>
-            <div class="tabs_container__o4dw7">
+            </div>            
+
+            <div class="tabs_container__o4dw7 tab-pane active">
                 <div class="tabs_main__RQyVN">
                     <div class="tabs_content__ebqwH  tabs_isActive___mQed tab-active">
                         <div>
@@ -195,7 +200,7 @@
                                             </picture>
                                         </span>
                                     </div>
-                                    <div class="flex-1 px-6 card-line_info__mRS5G undefined">
+                                    <div class="flex-2 px-6 card-line_info__mRS5G undefined">
                                         <h4 tag="h4" class="text-base desktop:text-lg desktopLg:text-2xl font-bold card-line_title__aTque undefined">Chương 1</h4>
                                         <p class="font-normal desktopLg:text-sm card-line_text__O92Ae pt-2  undefined">August 24,2020</p>
                                     </div>
@@ -204,53 +209,51 @@
                                     </div>
                                 </div>
                             </div>
-                            <div tag="div" class="w-full flex items-center py-6 border-b border-solid relative cursor-pointer text-xs card-line_root__FjE3_  ">
-                                <div class="flex  w-full items-center ">
-                                    <div class="card-line_thumb__M9M8_ undefined">
-                                        <span class="block rounded-lg relative overflow-hidden card-line_src__8Erx_ undefined ">
-                                            <picture>
-                                                <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/kvp_thumb_1280x1280-5b4e24b5e286-1597997466284-dTWzArz2.jpg?v=0&amp;maxW=200&amp;format=webp" type="image/webp">
-                                                <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/kvp_thumb_1280x1280-5b4e24b5e286-1597997466284-dTWzArz2.jpg?v=0&amp;maxW=200&amp;format=jpg" type="image/jpeg">
-                                                <img alt="Chương 2" title="Chương 2" src="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/kvp_thumb_1280x1280-5b4e24b5e286-1597997466284-dTWzArz2.jpg?v=0&amp;maxW=200&amp;format=jpg" class="" width="123" height="123">
-                                            </picture>
-                                        </span>
-                                    </div>
-                                    <div class="flex-1 px-6 card-line_info__mRS5G undefined">
-                                        <h4 tag="h4" class="text-base desktop:text-lg desktopLg:text-2xl font-bold card-line_title__aTque undefined">Chương 2</h4>
-                                        <p class="font-normal desktopLg:text-sm card-line_text__O92Ae pt-2  undefined">August 24,2020</p>
-                                    </div>
-                                    <div class="flex flex-wrap text-right undefined ">
-                                        <div class="text-sm desktop:text-xl text-right uppercase align-middle flex items-center justify-end card-line_extra__6TxUD">Miễn phí</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div tag="div" class="w-full flex items-center py-6 border-b border-solid relative cursor-pointer text-xs card-line_root__FjE3_  ">
-                                <div class="flex  w-full items-center ">
-                                    <div class="card-line_thumb__M9M8_ undefined">
-                                        <span class="block rounded-lg relative overflow-hidden card-line_src__8Erx_ undefined ">
-                                            <picture>
-                                                <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/kvp_thumb_1280x1280-94f09f424761-1597997466945-XXH5FykR.jpg?v=0&amp;maxW=200&amp;format=webp" type="image/webp">
-                                                <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/kvp_thumb_1280x1280-94f09f424761-1597997466945-XXH5FykR.jpg?v=0&amp;maxW=200&amp;format=jpg" type="image/jpeg">
-                                                <img alt="Chương 3" title="Chương 3" src="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/kvp_thumb_1280x1280-94f09f424761-1597997466945-XXH5FykR.jpg?v=0&amp;maxW=200&amp;format=jpg" class="" width="123" height="123">
-                                            </picture>
-                                        </span>
-                                    </div>
-                                    <div class="flex-1 px-6 card-line_info__mRS5G undefined">
-                                    <h4 tag="h4" class="text-base desktop:text-lg desktopLg:text-2xl font-bold card-line_title__aTque undefined">Chương 3</h4>
-                                    <p class="font-normal desktopLg:text-sm card-line_text__O92Ae pt-2  undefined">August 24,2020</p>
-                                </div>
-                                <div class="flex flex-wrap text-right undefined ">
-                                    <div class="text-sm desktop:text-xl text-right uppercase align-middle flex items-center justify-end card-line_extra__6TxUD">Miễn phí</div>
-                                </div>
-                            </div>
                         </div>
-                        <div class="p-7 text-center w-full">
-                            <span class="" title="">Xem thêm</span></div></div></div><div class="tabs_content__ebqwH  ">
+                        <div class="p-7 text-center w-full tabs_heading__hnB1c">
+                            <span class="tx" title="">Xem thêm</span>
                         </div>
                     </div>
                 </div>
+                <div class="tabs_content__ebqwH  ">
+                </div>
+            </div>
+            <div class="tab-pane">
+            </div>
         </div>      
     </div>
 </div>  
 {% endfor %}
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        const tabs = $$(".tab-item");
+        const panes = $$(".tab-pane");
+
+        const tabActive = $(".tab-item.active");
+        const line = $(".tabs .line");
+
+        requestIdleCallback(function () {
+        line.style.left = tabActive.offsetLeft + "px";
+        line.style.width = tabActive.offsetWidth + "px";
+        });
+
+        tabs.forEach((tab, index) => {
+        const pane = panes[index];
+
+        tab.onclick = function () {
+            $(".tab-item.active").classList.remove("active");
+            $(".tab-pane.active").classList.remove("active");
+
+            line.style.left = this.offsetLeft + "px";
+            line.style.width = this.offsetWidth + "px";
+
+            this.classList.add("active");
+            pane.classList.add("active");
+        };
+        });
+
+    </script>
 {%endblock body%}
+
