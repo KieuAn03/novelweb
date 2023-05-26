@@ -8,6 +8,7 @@ def index(request):
         'truyens' : truyens
     }
     return render(request,'home/index.html',context)
+
 def deltail(request):
     id = request.GET.get('id','') 
     truyens = truyen.objects.filter(id=id)
@@ -17,3 +18,4 @@ def deltail(request):
         'cts': ct 
     }
     return render(request, 'summary/nav.html',context)
+
