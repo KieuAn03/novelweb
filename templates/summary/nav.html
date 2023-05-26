@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/home-style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="{% static 'js/bootstrap.min.js' %}"></script> 
 {%endblock css_js%}
 
@@ -148,35 +151,23 @@
                 </div>
             </div>
         </div>  
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
-
         <div class="tabs tabs_tabs-comments__2Wh_C">
             <div class="tabs_heading__hnB1c relative mb-6 -ml-24 -mr-24 px-24 tablet:flex tablet:justify-items-start ">
-                <div class="tabs_headingInner__YDSev">
-                    <ul class="flex justify-center mobile:justify-around">
-                        <div class="tab_root__UdDNO tab_isActive__ibKCb  tabs-comments " data-key="comic-chapters">
-                            <span class="tab_link__d7Ugf">chương</span>
+                <div class=" ">
+                    <ul class="tab flex justify-center mobile:justify-around">
+                        <div class="tab_root__UdDNO tab_isActive__ibKCb  tabs-comments active tab-item" data-key="comic-chapters">
+                            <span class="tab_link__d7Ugf">Chương</span>
                         </div>
-                        <div class="tab_root__UdDNO   tabs-comments " data-key="comment">
-                            <span class="tab_link__d7Ugf">Bình luận</span>
+                        <div class="tab_root__UdDNO   tabs-comments tab-item" data-key="comment">
+                            <span class="tab_link__d7Ugf">Bình luận (40)</span>
                         </div>
+                        <div class="line"></div>
                     </ul>
+                    
                 </div>
-            </div>
-            <div class="tabs_container__o4dw7">
+            </div>            
+
+            <div class="tabs_container__o4dw7 tab-pane active">
                 <div class="tabs_main__RQyVN">
                     <div class="tabs_content__ebqwH  tabs_isActive___mQed tab-active">
                         <div>
@@ -209,7 +200,7 @@
                                             </picture>
                                         </span>
                                     </div>
-                                    <div class="flex-1 px-6 card-line_info__mRS5G undefined">
+                                    <div class="flex-2 px-6 card-line_info__mRS5G undefined">
                                         <h4 tag="h4" class="text-base desktop:text-lg desktopLg:text-2xl font-bold card-line_title__aTque undefined">Chương 1</h4>
                                         <p class="font-normal desktopLg:text-sm card-line_text__O92Ae pt-2  undefined">August 24,2020</p>
                                     </div>
@@ -219,13 +210,50 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-7 text-center w-full">
-                            <span class="" title="">Xem thêm</span></div></div></div><div class="tabs_content__ebqwH  ">
+                        <div class="p-7 text-center w-full tabs_heading__hnB1c">
+                            <span class="tx" title="">Xem thêm</span>
                         </div>
                     </div>
                 </div>
+                <div class="tabs_content__ebqwH  ">
+                </div>
+            </div>
+            <div class="tab-pane">
+            </div>
         </div>      
     </div>
 </div>  
 {% endfor %}
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        const tabs = $$(".tab-item");
+        const panes = $$(".tab-pane");
+
+        const tabActive = $(".tab-item.active");
+        const line = $(".tabs .line");
+
+        requestIdleCallback(function () {
+        line.style.left = tabActive.offsetLeft + "px";
+        line.style.width = tabActive.offsetWidth + "px";
+        });
+
+        tabs.forEach((tab, index) => {
+        const pane = panes[index];
+
+        tab.onclick = function () {
+            $(".tab-item.active").classList.remove("active");
+            $(".tab-pane.active").classList.remove("active");
+
+            line.style.left = this.offsetLeft + "px";
+            line.style.width = this.offsetWidth + "px";
+
+            this.classList.add("active");
+            pane.classList.add("active");
+        };
+        });
+
+    </script>
 {%endblock body%}
+
