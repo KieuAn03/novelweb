@@ -22,7 +22,9 @@
               {%for truyen in truyens %}
               <div class=" col-sm-6 col-md-4 col-lg-3 col-xl-3">
                 <div class="card rounded-0 h-100 ">
+                  <a class ="listlink" href="{% url 'deltal' %}?id={{truyen.id}}">
                     <img alt="Card image cap" class="card-img-top" src="{{truyen.img.url}}" />
+                  </a>
                     <h4 class="card-title  text-center ">
                       <a class ="listlink" href="{% url 'deltal' %}?id={{truyen.id}}">{{truyen.title}}</a>
                       <h6 class="card-subtitle mb-2 text-center text-muted card-text">{{truyen.description}}</h6>
