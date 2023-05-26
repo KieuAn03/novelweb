@@ -9,7 +9,7 @@ def index(request):
     }
     return render(request,'home/index.html',context)
 def deltail(request):
-    id = request.GET.get('id','')
+    id = request.GET.get('id','') 
     truyens = truyen.objects.filter(id=id)
     ct = category.objects.filter(id=id)
     context = {
