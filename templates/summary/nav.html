@@ -165,8 +165,7 @@
                     </ul>
                     
                 </div>
-            </div>            
-
+            </div>
             <div class="tabs_container__o4dw7 tab-pane active">
                 <div class="tabs_main__RQyVN">
                     <div class="tabs_content__ebqwH  tabs_isActive___mQed tab-active">
@@ -188,27 +187,27 @@
                             <div class="message_root__vwSon py-1 px-2">
                                 <span class="font-bold block text-lg tablet:text-xl">628 chương</span>
                                 <span class="truncate tablet:text-lg text-gray-dusty">Truyện phát hành từ thứ Hai đến thứ Năm hàng tuần!</span>
-                            </div>
-                            <div tag="div" class="w-full flex items-center py-6 border-b border-solid relative cursor-pointer text-xs card-line_root__FjE3_  ">
+                            </div>                                                                    
+                            {% for chapter in chapters  %}
+                            <div  tag="div" class="w-full flex items-center py-6 border-b border-solid relative cursor-pointer text-xs card-line_root__FjE3_  ">
                                 <div class="flex  w-full items-center ">
                                     <div class="card-line_thumb__M9M8_ undefined">
                                         <span class="block rounded-lg relative overflow-hidden card-line_src__8Erx_ undefined ">
                                             <picture>
-                                                <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/kvp_thumb_1280x1280-b18efb3dfab9-1597997465253-ZPT1Ngjo.jpg?v=0&amp;maxW=200&amp;format=webp" type="image/webp">
-                                                <source srcset="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/kvp_thumb_1280x1280-b18efb3dfab9-1597997465253-ZPT1Ngjo.jpg?v=0&amp;maxW=200&amp;format=jpg" type="image/jpeg">
-                                                <img alt="Chương 1" title="Chương 1" src="https://pops-images-vn.akamaized.net/api/v2/containers/file2/cms_thumbnails/kvp_thumb_1280x1280-b18efb3dfab9-1597997465253-ZPT1Ngjo.jpg?v=0&amp;maxW=200&amp;format=jpg" class="" width="123" height="123">
+                                                <a class="listlink" href="#"><img alt="chapter.title" title="{{chapter.title}}" src="{{chapter.img.url}}?v=0&amp;maxW=200&amp;format=jpg" class="" width="123" height="123"></a>
                                             </picture>
                                         </span>
                                     </div>
                                     <div class="flex-2 px-6 card-line_info__mRS5G undefined">
-                                        <h4 tag="h4" class="text-base desktop:text-lg desktopLg:text-2xl font-bold card-line_title__aTque undefined">Chương 1</h4>
-                                        <p class="font-normal desktopLg:text-sm card-line_text__O92Ae pt-2  undefined">August 24,2020</p>
+                                        <h4 tag="h4" class="text-base desktop:text-lg desktopLg:text-2xl font-bold card-line_title__aTque undefined"><a class="listlink" href="#">{{chapter.title}}</a></h4>
+                                        <p class="font-normal desktopLg:text-sm card-line_text__O92Ae pt-2  undefined">{{chapter.date_published}}</p>
                                     </div>
                                     <div class="flex flex-wrap text-right undefined ">
-                                        <div class="text-sm desktop:text-xl text-right uppercase align-middle flex items-center justify-end card-line_extra__6TxUD">Miễn phí</div>
+                                        <div class="text-sm desktop:text-xl text-right uppercase align-middle flex items-center justify-end card-line_extra__6TxUD" style="padding: 1.5rem">Miễn phí</div>
                                     </div>
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
                         <div class="p-7 text-center w-full tabs_heading__hnB1c">
                             <span class="tx" title="">Xem thêm</span>
@@ -219,7 +218,7 @@
                 </div>
             </div>
             <div class="tab-pane">
-            </div>
+            </div>         
         </div>      
     </div>
 </div>  

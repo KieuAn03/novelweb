@@ -13,9 +13,11 @@ def deltail(request):
     id = request.GET.get('id','') 
     truyens = truyen.objects.filter(id=id)
     ct = truyen_category.objects.filter(Truyen = id)
+    chapters = chapter.objects.filter(truyen = id)
     context = {
         'truyens' : truyens,
-        'cts': ct 
+        'cts': ct,
+        'chapters' : chapters,
     }
     return render(request, 'summary/nav.html',context)
 

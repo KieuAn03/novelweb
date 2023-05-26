@@ -14,6 +14,7 @@ class truyen (models.Model):
     
 class chapter (models.Model):
     id = models.AutoField(primary_key=True)
+    img = models.ImageField(upload_to='chapter/', null= True)
     truyen = models.ForeignKey(truyen, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField(null=True)

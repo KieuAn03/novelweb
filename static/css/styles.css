@@ -623,3 +623,14 @@ img, svg {
   .tabs .line {
     position: absolute;
   }
+.listlink {
+    color: rgb(178, 160, 163);
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+}
+.listlink:hover {
+    color: rgb(133, 234, 203);
+    transition: 0.1s;
+}
