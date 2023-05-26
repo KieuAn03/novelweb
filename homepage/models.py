@@ -21,7 +21,6 @@ class chapter (models.Model):
         return self.title
     
 
-
 class category (models.Model):
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=20)
@@ -31,4 +30,6 @@ class category (models.Model):
     
 class truyen_category (models.Model):
     category = models.ForeignKey(category,on_delete=models.CASCADE)
-    truyen = models.ForeignKey(truyen, on_delete= models.CASCADE)
+    Truyen = models.ForeignKey(truyen, on_delete= models.CASCADE)
+    def __str__(self):
+        return self.category.title
