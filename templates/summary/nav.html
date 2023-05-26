@@ -120,8 +120,8 @@
                             <span class="metadata_label__DARMb mr-1 capitalize">Thể loại:&nbsp;</span>
                             <span class="metadata_info__LnFyC whitespace-normal">
                             {% for ct  in cts  %}
-                                    <span class="badge text-bg-secondary">{{ct.title}}</span>
-                                    <span class="badge text-bg-success">{{ct.content}}</span>                            
+                                    <span class="badge text-bg-secondary">{{ct.category}}</span>
+                                    <span class="badge text-bg-success">{{ct.category}}</span>                            
                             {% endfor %}
                             </span>
                         </div>
@@ -132,9 +132,9 @@
                             </span>
                         </div>
                         <div class="text-base mb-2.5 metadata_item__bET16 ">
-                            <span class="metadata_label__DARMb mr-1 capitalize">Nội dung bởi:&nbsp;</span>
+                            <span class="metadata_label__DARMb mr-1 capitalize">Ngày đăng:&nbsp;</span>
                             <span class="metadata_info__LnFyC whitespace-normal">
-                                <span class="metadata_infoItem__5rfU0 ">DCC</span>
+                                <span class="metadata_infoItem__5rfU0 ">{{truyen.date_published|date:'Y-m-d H:i'}}</span>
                             </span>
                         </div>
                     </div>
