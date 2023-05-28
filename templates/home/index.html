@@ -40,7 +40,7 @@
         
         <div class="list-group list-group-numbered rounded-0">
           {%for top in tops%}
-          <a href="#" class="list-group-item list-group-item-action justify-content-between align-items-start" aria-current="true">
+          <a href="{% url 'deltal'%}?id={{top.id}}" class="list-group-item list-group-item-action justify-content-between align-items-start" aria-current="true">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1 "style="font-size: 15px;"> {{top.title}}</h5>
               <small style="font-size: 10px;">{{top.date_published | date:"M/d/Y"}}</small>
