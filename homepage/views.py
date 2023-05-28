@@ -4,8 +4,10 @@ from django.template import loader
 from .models import *
 def index(request):
     truyens = truyen.objects.all()
+    tops = truyen.objects.all().order_by('-view_count')[:3]
     context = {
-        'truyens' : truyens
+        'truyens' : truyens,
+        'tops' : tops
     }
     return render(request,'home/index.html',context)
 

@@ -16,11 +16,11 @@
     <section>
       <div class ="container mb-5">
       <div class = "row ">
-        <div class ="col-sm-9    col-md-9    col-lg-10          bg-light p-3 border ">
+        <div class ="col-lg-10          bg-light p-3 border ">
           <h1 class="display-4 text-xs-center m-y-3 text-muted" id="speakers">Danh sách truyện</h1>
             <div class="row gy-3" >
               {%for truyen in truyens %}
-              <div class=" col-sm-6 col-md-4 col-lg-3 col-xl-3">
+              <div class=" col-sm-6 col-md-6 col-lg-3 col-xl-3">
                 <div class="card rounded-0 h-100 ">
                   <a class ="listlink" href="{% url 'deltal' %}?id={{truyen.id}}">
                     <img alt="Card image cap" class="card-img-top" src="{{truyen.img.url}}" />
@@ -35,8 +35,20 @@
         </div>
         
       </div>
-      <div class = " col ">
-        <p>aaaa</p>
+      <div class = " col border">
+        <div class ='container-fluid '><h4 class=" text-xs-center m-y-3 text-muted " >TOP TRUYỆN</h4></div>
+        
+        <div class="list-group list-group-numbered rounded-0">
+          {%for top in tops%}
+          <a href="#" class="list-group-item list-group-item-action justify-content-between align-items-start" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1 "style="font-size: 15px;"> {{top.title}}</h5>
+              <small style="font-size: 10px;">{{top.date_published | date:"M/d/Y"}}</small>
+            </div>
+            <small style="font-size: 10px;">Views: {{top.view_count}}</small>
+          </a>
+          {%endfor%}
+        </div>
       </div>
       
     </section>
@@ -51,6 +63,9 @@
   a.listlink:hover {
     color: rgb(133, 234, 203);
     transition: 0.1s;
+  }
+  .list-group {
+    font-size: calc(100vh / 200px);
   }
 </style>
 
