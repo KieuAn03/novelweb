@@ -1,0 +1,60 @@
+.truyen-title {
+    text-transform: uppercase;
+    font-family: "Roboto Condensed",Tahoma,sans-serif;
+    color: rgb(245, 63, 7);
+}
+
+.truyen{
+    display: table;
+    margin: 0 auto 5px auto;
+}
+
+.chapter-title {
+    color: darkolivegreen;
+    font-size: 16px;
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee
+}
+
+hr.chapter-start {
+    background: url(../img/spriteimg_new_white_op.png) -200px -27px no-repeat;
+    width: 59px;
+    height: 20px;
+    border: 0;
+    margin: 10px auto;
+    display: table;
+}
+.listlink {
+    color: rgb(244, 239, 240);
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+}
+.listlink:hover {
+    color: rgb(133, 234, 203);
+    transition: 0.1s;
+}
+
+.next-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.bt{
+    margin: auto 10px;
+}
+.content{
+    margin: auto 80px;
+    font-family: 'Lato', sans-serif;
+}

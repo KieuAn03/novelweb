@@ -23,7 +23,7 @@
                 <picture >
                     <source srcset="{{truyen.img.url}}?v=0&amp;maxW=420&amp;format=webp" type="image/webp">
                     <source srcset="{{truyen.img.url}}?v=0&amp;maxW=420&amp;format=jpg" type="image/jpeg">
-                    <img alt="Ác Nữ Khi Yêu" title="Ác Nữ Khi Yêu" src="{{truyen.img.url}}?v=0&amp;maxW=420&amp;format=jpg" class="block w-full h-full" width="420" height="630">
+                    <img alt="{{truyen.title}}" title="{{truyen.title}}" src="{{truyen.img.url}}?v=0&amp;maxW=420&amp;format=jpg" class="block w-full h-full" width="420" height="630">
                 </picture>
             </div>
             <div class="relative flex flex-wrap">
@@ -31,7 +31,7 @@
                     <picture>
                         <source srcset="{{truyen.img.url}}?v=0&amp;maxW=420&amp;format=webp" type="image/webp">
                         <source srcset="{{truyen.img.url}}?v=0&amp;maxW=420&amp;format=jpg" type="image/jpeg">
-                        <img alt="Ác Nữ Khi Yêu" title="{{truyen.title}}" src="{{truyen.img.url}}?v=0&amp;maxW=420&amp;format=jpg" class="block w-full h-full" width="420" height="630">
+                        <img alt="{{truyen.title}}" title="{{truyen.title}}" src="{{truyen.img.url}}?v=0&amp;maxW=420&amp;format=jpg" class="block w-full h-full" width="420" height="630">
                     </picture>
                 </div>
                 <div class="brg relative flex-1 pl-12" >
@@ -194,12 +194,12 @@
                                     <div class="card-line_thumb__M9M8_ undefined">
                                         <span class="block rounded-lg relative overflow-hidden card-line_src__8Erx_ undefined ">
                                             <picture>
-                                                <a class="listlink" href="#"><img alt="chapter.title" title="{{chapter.title}}" src="{{chapter.img.url}}?v=0&amp;maxW=200&amp;format=jpg" class="" width="123" height="123"></a>
+                                                <a class="listlink" href="{% url 'doc' %}?id={{chapter.id}}"><img alt="chapter.title" title="{{chapter.title}}" src="{{chapter.img.url}}?v=0&amp;maxW=200&amp;format=jpg" class="" width="123" height="123"></a>
                                             </picture>
                                         </span>
                                     </div>
                                     <div class="flex-2 px-6 card-line_info__mRS5G undefined">
-                                        <h4 tag="h4" class="text-base desktop:text-lg desktopLg:text-2xl font-bold card-line_title__aTque undefined"><a class="listlink" href="#">{{chapter.title}}</a></h4>
+                                        <h4 tag="h4" class="text-base desktop:text-lg desktopLg:text-2xl font-bold card-line_title__aTque undefined"><a class="listlink" href="{% url 'doc' %}?id={{chapter.id}}">{{chapter.title}}</a></h4>
                                         <p class="font-normal desktopLg:text-sm card-line_text__O92Ae pt-2  undefined">{{chapter.date_published}}</p>
                                     </div>
                                     <div class="flex flex-wrap text-right undefined ">

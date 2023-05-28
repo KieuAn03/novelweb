@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}summary{% endblock %}
+
+{%block css_js%}
+
+    <link rel="stylesheet" href="{% static 'css/doc.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/home-style.css' %}"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/4b7f4c9dfd.js" crossorigin="anonymous"></script>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+{%endblock css_js%}
+{%block body%}
+{% for chapter in chapters  %}
+    <div>
+        <div>
+            <h1 class="truyen truyen-title">{{chapter.truyen}}</h1> 
+            <h2 class="truyen chapter-title">{{chapter.title}}</h2>
+            <hr class="chapter-start">
+            <div class="truyen chapter-title">
+                <button class="next-button listlink" onclick="chuongtruoc()">Chương trước</button>
+                <button class="bt next-button">
+                    <i class="fa-solid fa-house"></i>
+                </button>
+                <button class="next-button listlink" onclick="chuongsau()">Chương sau</button>
+        </div>
+        <div>
+            <div class="content">
+                <p>
+                    {{chapter.content}}
+                </p>
+            </div>
+        </div>
+    </div>        
+        <script>
+        id1={{chapter.id}}+1
+        id2={{chapter.id}}-1
+        
+        function chuongtruoc() {
+            // Thực hiện hành động khi nhấp vào nút "Chương kế tiếp" ở đây
+            // Ví dụ: Chuyển đến trang chương tiếp theo
+            var url = "{% url 'doc' %}?id=" + id2;
+            window.location.href = url;
+            
+        }
+        function chuongsau() {
+            // Thực hiện hành động khi nhấp vào nút "Chương kế tiếp" ở đây
+            // Ví dụ: Chuyển đến trang chương tiếp theo
+            var url = "{% url 'doc' %}?id=" + id1;
+            window.location.href = url;
+            
+        }
+    </script>
+{% endfor %}
+{%endblock body%}
