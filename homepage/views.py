@@ -21,3 +21,10 @@ def deltail(request):
     }
     return render(request, 'summary/nav.html',context)
 
+def doc(request):
+    id = request.GET.get('id','') 
+    chapters = chapter.objects.filter(id = id)
+    context = {
+        'chapters' : chapters,
+    }
+    return render(request, 'summary/doc.html',context)
