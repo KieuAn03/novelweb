@@ -35,6 +35,12 @@ class truyen_category (models.Model):
     Truyen = models.ForeignKey(truyen, on_delete= models.CASCADE)
     def __str__(self):
         return self.Truyen.title + " : " + self.category.title
+
+class favorate (models.Model):
+    id = models.AutoField(primary_key=True)
+    truyen = models.ForeignKey(truyen, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 class comment (models.Model):
     id = models.AutoField(primary_key=True)
     truyen = models.ForeignKey(truyen, on_delete=models.CASCADE,related_name='comments')
@@ -43,7 +49,3 @@ class comment (models.Model):
     date_published = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.user.username + " : " + self.truyen.title +" : "+ self.content[:10] + "..."
-class favorate (models.Model):
-    id = models.AutoField(primary_key=True)
-    truyen = models.ForeignKey(truyen, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
