@@ -3,14 +3,11 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
 from django.template import loader
 from .models import *
-<<<<<<< HEAD
 from .forms import CommentForm
 from datetime import datetime
 import json
-=======
 from django.db.models import Q # new
 
->>>>>>> origin/main
 def index(request):
     truyens = truyen.objects.all()
     tops = truyen.objects.all().order_by('-view_count')[:3]
@@ -50,7 +47,6 @@ def doc(request):
     }
     return render(request, 'summary/doc.html',context)
 
-<<<<<<< HEAD
 # add comment and delete comment                             
 def add_comment(request):
     """
@@ -105,7 +101,6 @@ def truyenFavo(request):
     }
     return render(request,'summary/fav.html',context)
 
-=======
 def search (request):
     if request.method == 'GET':
         search = request.GET.get('scontent')
@@ -114,4 +109,3 @@ def search (request):
             'truyens' : truyens,
         }
         return render(request, 'home/search.html', context)
->>>>>>> origin/main
