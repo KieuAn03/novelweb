@@ -1,15 +1,23 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib.auth import authenticate
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
 from django.template import loader
 from .models import *
 <<<<<<< HEAD
 from .forms import CommentForm
 from datetime import datetime
+<<<<<<< HEAD
 =======
 from django.db.models import Q # new
 
 >>>>>>> c6b8b5eb067ae235b34506223ebbbca7bb99ad08
+=======
+import json
+=======
+from django.db.models import Q # new
+
+>>>>>>> origin/main
+>>>>>>> TD
 def index(request):
     truyens = truyen.objects.all()
     tops = truyen.objects.all().order_by('-view_count')[:3]
@@ -20,18 +28,28 @@ def index(request):
     return render(request,'home/index.html',context)
 
 def deltail(request):
+    """
+    hàm lấy dữ liệu thể loại, tên truyện, số chương, chương truyện, để đưa lên web
+    """
     id = request.GET.get('id','') 
     truyens = truyen.objects.filter(id=id)
     ct = truyen_category.objects.filter(Truyen = id)
     chapters = chapter.objects.filter(truyen = id)
+    num_chap = chapter.objects.filter(truyen = id).count()
+    num_cmt = comment.objects.filter(truyen=id).count()
     context = {
         'truyens' : truyens,
         'cts': ct,
         'chapters' : chapters,
+        'num_cmt' : num_cmt,
+        'num_chap' : num_chap,
     }
     return render(request, 'summary/nav.html',context)
 
 def doc(request):
+    """
+    load chương truyện lên web để đọc
+    """
     id = request.GET.get('id')
     chapters = chapter.objects.filter(id = id)
     context = {
@@ -39,30 +57,71 @@ def doc(request):
     }
     return render(request, 'summary/doc.html',context)
 <<<<<<< HEAD
+<<<<<<< HEAD
                                   
+=======
+
+<<<<<<< HEAD
+# add comment and delete comment                             
+>>>>>>> TD
 def add_comment(request):
+    """
+        thêm bình luận cho 1 truyện
+    """
     pk=request.GET.get('id')
     eachComment = truyen.objects.get(id=pk)
     form = CommentForm(instance=eachComment) 
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=eachComment)
-        if form.is_valid():            
-            name = request.user.username
-            passw = request.user.password
+        if form.is_valid():
             body = form.cleaned_data['content']
-            c = comment(truyen=eachComment, user=authenticate(request,username = name,password = passw),content=body,date_published=datetime.now())
+            c = comment(truyen=eachComment,user=request.user ,content=body,date_published=datetime.now())
             c.save()
-            return redirect('summary/nav')
+            return redirect('homepage')
         else:
             print('form is invalid')
     else:
         form = CommentForm()
     context = {
-        'form' : form
+        'form' : form ,
     }
     return render(request, "summary/add_cmt.html", context)
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> TD
 
+def delete_comment(request):
+    """
+    xoá binh luận gần nhất của 1 truyện
+    """
+    pk=request.GET.get('id')
+    comments = comment.objects.filter(truyen=pk).last()
+    comments.delete()
+    return redirect('homepage')
+
+def likeTruyen(request):
+    """
+    thêm truyện yêu thích
+    """
+    data = json.loads(request.body)
+    truyenId = data['truyenId']
+    action = data['action']
+    user = request.user
+    truyen = truyen.objects.get(id=truyenId)
+    favorates, created = favorate.objects.get_or_create(user=user,truyen=truyen)
+    favorates.save()
+    return JsonResponse('added', safe=False)
+
+def truyenFavo(request):
+    users = request.user
+    favorates = favorate.objects.filter(user=users)
+    context = {
+        'favorates' : favorates,
+    }
+    return render(request,'summary/fav.html',context)
+
+=======
 def search (request):
     if request.method == 'GET':
         search = request.GET.get('scontent')
@@ -71,4 +130,8 @@ def search (request):
             'truyens' : truyens,
         }
         return render(request, 'home/search.html', context)
+<<<<<<< HEAD
 >>>>>>> c6b8b5eb067ae235b34506223ebbbca7bb99ad08
+=======
+>>>>>>> origin/main
+>>>>>>> TD
