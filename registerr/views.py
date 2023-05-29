@@ -19,7 +19,7 @@ def SignupPage(request):
 
             my_user=User.objects.create_user(uname,email,pass1)
             my_user.save()
-            return redirect('home/login.html')
+            return redirect(views.loginpage)
 
 
     return render (request,'home/register.html')

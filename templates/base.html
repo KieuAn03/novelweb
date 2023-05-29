@@ -28,7 +28,7 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
           <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+              <a class="nav-link active" aria-current="page" href="{%url 'homepage'%}">Trang chủ</a>
             </li>
             {%if user.is_authenticated%}
             <li class="nav-item">
@@ -43,7 +43,7 @@
                 <li><a class="dropdown-item" href="#"></a>Profile</li>
                 <li><a class="dropdown-item" href="#">Cài đặt</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                <li><a class="dropdown-item" href="{%url 'logout'%}">Đăng xuất</a></li>
               </ul>
             </li>
             {% else %}
@@ -74,38 +74,27 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-6 col-md-3 item">
-              <h3>Services</h3>
+              <h3>Điều hướng</h3>
               <ul>
-                <li><a href="#">Web design</a></li>
-                <li><a href="#">Development</a></li>
-                <li><a href="#">Hosting</a></li>
+                <li><a href="{%url 'homepage'%}">Trang chủ</a></li>
+                <li><a href="#">Cá nhân</a></li>
+                <li><a href="{%url 'logout'%}">Đăng xuất</a></li>
               </ul>
             </div>
             <div class="col-sm-6 col-md-3 item">
-              <h3>About</h3>
+              <h3>Về chúng tôi</h3>
               <ul>
-                <li><a href="#">Company</a></li>
                 <li><a href="#">Team</a></li>
-                <li><a href="#">Careers</a></li>
               </ul>
             </div>
             <div class="col-md-6 item text">
-              <h3>Company Name</h3>
+              <h3>Ethereal</h3>
               <p>
-                Praesent sed lobortis mi. Suspendisse vel placerat ligula.
-                Vivamus ac sem lacus. Ut vehicula rhoncus elementum. Etiam quis
-                tristique lectus. Aliquam in arcu eget velit pulvinar dictum vel
-                in justo.
+                Với sứ mệnh cao cả, đem đến cho bạn những giây phút giải trí, thư giãn thoải mái nhất. Chúng tôi luôn cố gắng hết sức để đem đến cho bạn những trải nghiệm tuyệt vời nhất.
               </p>
             </div>
-            <div class="col item social">
-              <a href="#"><i class="icon ion-social-facebook"></i></a
-              ><a href="#"><i class="icon ion-social-twitter"></i></a
-              ><a href="#"><i class="icon ion-social-snapchat"></i></a
-              ><a href="#"><i class="icon ion-social-instagram"></i></a>
-            </div>
           </div>
-          <p class="copyright">Company Name © 2018</p>
+          <p class="copyright">Ethereal since © 2021</p>
         </div>
       </footer>
     </div>
