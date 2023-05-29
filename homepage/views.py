@@ -5,9 +5,20 @@ from django.template import loader
 from .models import *
 from .forms import CommentForm
 from datetime import datetime
+<<<<<<< HEAD
+=======
+from django.db.models import Q # new
+
+>>>>>>> c6b8b5eb067ae235b34506223ebbbca7bb99ad08
+=======
 import json
 from django.db.models import Q # new
 
+<<<<<<< HEAD
+=======
+>>>>>>> origin/main
+>>>>>>> TD
+>>>>>>> main
 def index(request):
     truyens = truyen.objects.all()
     tops = truyen.objects.all().order_by('-view_count')[:3]
@@ -46,8 +57,13 @@ def doc(request):
         'chapters' : chapters,
     }
     return render(request, 'summary/doc.html',context)
+<<<<<<< HEAD
+<<<<<<< HEAD
+                                  
+=======
 
 # add comment and delete comment                             
+>>>>>>> TD
 def add_comment(request):
     """
         thêm bình luận cho 1 truyện
@@ -70,6 +86,10 @@ def add_comment(request):
         'form' : form ,
     }
     return render(request, "summary/add_cmt.html", context)
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> TD
 
 def delete_comment(request):
     """
@@ -109,3 +129,11 @@ def search (request):
             'truyens' : truyens,
         }
         return render(request, 'home/search.html', context)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c6b8b5eb067ae235b34506223ebbbca7bb99ad08
+=======
+>>>>>>> origin/main
+>>>>>>> TD
+>>>>>>> main
