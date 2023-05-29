@@ -12,6 +12,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+    <script type="text/javascript">
+        var user = '{{request.user}}'
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+    </script>
 {%endblock css_js%}
 
 {%block body%}
@@ -91,14 +110,14 @@
                         <span class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_primary__PzUTB  button_buttonTicket__qyP_b !ml-4 !mr-6 !shadow-sm mobile:!border-0 mobile:!text-base mobile:!p-0 mobile:!m-0 mobile:!inline-block mobile:!min-h-0 mobile:!font-normal mobile:capitalize " title="">
                             Chương mới nhất
                         </span>
-                        <span class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_white__jBVlZ button_comicAdd__US2RV " title="">
+                        <button data-truyen={{truyen.id}} data-action= "add" class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_white__jBVlZ button_comicAdd__US2RV update-like ">
                             <span class="button_icon__Il1Mq /v1/IcPlus.svg">
                                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M21.697 11.258a1.01 1.01 0 00-.741-.302h-7.912V3.044a1.044 1.044 0 10-2.088 0v7.912H3.044a1.044 1.044 0 100 2.088h7.912v7.912a1.044 1.044 0 102.088 0v-7.912h7.912a1.049 1.049 0 00.741-1.786z"></path>
                                 </svg>
                             </span>
                                 Yêu thích
-                        </span> 
+                        </button>
                     </div>
                     <div class="banner-comic__meta">
                         <div class="text-base mb-2.5 metadata_item__bET16 hidden">
@@ -156,10 +175,10 @@
                 <div class=" ">
                     <ul class="tab flex justify-center mobile:justify-around">
                         <div class="tab_root__UdDNO tab_isActive__ibKCb  tabs-comments active tab-item" data-key="comic-chapters">
-                            <span class="tab_link__d7Ugf">Chương</span>
+                            <span class="tab_link__d7Ugf">Chương ({{num_chap}})</span>
                         </div>
                         <div class="tab_root__UdDNO   tabs-comments tab-item" data-key="comment">
-                            <span class="tab_link__d7Ugf">Bình luận (40)</span>
+                            <span class="tab_link__d7Ugf">Bình luận ({{num_cmt}})</span>
                         </div>
                         <div class="line"></div>
                     </ul>
@@ -185,7 +204,7 @@
                                 </span>
                             </h2>
                             <div class="message_root__vwSon py-1 px-2">
-                                <span class="font-bold block text-lg tablet:text-xl">628 chương</span>
+                                <span class="font-bold block text-lg tablet:text-xl">{{num_chap}} chương</span>
                                 <span class="truncate tablet:text-lg text-gray-dusty">Truyện phát hành từ thứ Hai đến thứ Năm hàng tuần!</span>
                             </div>                                                                    
                             {% for chapter in chapters  %}
@@ -223,9 +242,18 @@
                     <div class="card shadow-0 border" style="background-color: #f0f2f5;">
                     <div class="card-body p-4">
                         <div class="form-outline mb-4">
-                        <input type="text" id="addANote" class="form-control" placeholder="Type comment..." />
-                        <label class="form-label" for="addANote">+ Add a note</label>
+                        {% if user.username %}
+                            <div>({{num_cmt}}) Comment</div>
+                            
+                            <input type="text" id="addANote" class="form-control" placeholder="Type comment..." />
+                            <br>
+                            <p><a class="btn btn-primary" href="{% url 'comment' %}?id={{truyen.id}}"> Add comment </a></p>
+                            <p><a class="btn btn-danger" href="{% url 'delete-comment' %}?id={{truyen.id}}">  Delete Comment </a></p>
+                        {% else %}
+                            <p><a class="btn btn-primary" href="{% url 'login' %}"> Đăng nhập để tạo bình luận </a></p>
+                        {% endif %}
                         </div>
+
                         {% if not truyen.comments.all %}
                             <p>Not comment add yet...</p>
                         {% else %}
@@ -263,7 +291,6 @@
                                 </section>
                             {% endfor %}
                         {% endif %}
-                        <p><a class="btn btn-primary" href="{% url 'comment'%}?id={{truyen.id}}"> Add comment </a></p>
                     </div>
                     </div>
                 </div>
@@ -273,6 +300,7 @@
     </div>
 </div>  
 {% endfor %}
+    <script src="{% static 'js/like.js' %}"></script> 
     <script>
         const $ = document.querySelector.bind(document);
         const $$ = document.querySelectorAll.bind(document);
