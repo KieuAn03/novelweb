@@ -37,7 +37,7 @@ class truyen_category (models.Model):
         return self.Truyen.title + " : " + self.category.title
 class comment (models.Model):
     id = models.AutoField(primary_key=True)
-    truyen = models.ForeignKey(truyen, on_delete=models.CASCADE)
+    truyen = models.ForeignKey(truyen, on_delete=models.CASCADE,related_name='comments')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     content = models.TextField(max_length=200)
     date_published = models.DateTimeField(auto_now_add=True)

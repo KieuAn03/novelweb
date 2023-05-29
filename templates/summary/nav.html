@@ -210,7 +210,7 @@
                             {% endfor %}
                         </div>
                         <div class="p-7 text-center w-full tabs_heading__hnB1c">
-                            <span class="tx" title="">Xem thêm</span>
+                            <span class="tx" title=""> Xem thêm</span>
                         </div>
                     </div>
                 </div>
@@ -218,7 +218,46 @@
                 </div>
             </div>
             <div class="tab-pane">
-            
+                <div class="row d-flex justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+                    <div class="card-body p-4">
+                        <div class="form-outline mb-4">
+                        <input type="text" id="addANote" class="form-control" placeholder="Type comment..." />
+                        <label class="form-label" for="addANote">+ Add a note</label>
+                        </div>
+
+                        {% for comment in comments  %}
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <p>{{comment.content}}</p>
+
+                                    <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar" width="25"
+                                        height="25" />
+                                        <p class="small mb-0 ms-2">{{comment.user}}</p>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center text-primary">
+                                        <p class="small mb-0">{{comment.truyen}}</p>
+                                        <i class="fas fa-thumbs-up mx-2 fa-xs" style="margin-top: -0.16rem;"></i>
+                                        <p class="small mb-0">2</p>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <form action="{% url 'comment'%}?id={{truyen.id}}" method="POST">
+                            {% csrf_token %}
+                            <p><label>Bình luận:</label></p>
+                            {{form.content}}
+                            <br/>
+                            <input type="submit" value="Bình luận"/>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+                </div>                              
             </div>         
         </div>      
     </div>

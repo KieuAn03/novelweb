@@ -5,5 +5,7 @@ urlpatterns = [
     path("", views.index),
     path("dental/", views.deltail, name="deltal" ),
     path("logout/", rg.LogoutPage, name="logout"),
-    path("doc/", views.doc, name="doc"),
+    path("doc/", views.doc, name="doc"),    
+    path("comment/", views.cmt, name="comment"),
 ]
+ 
