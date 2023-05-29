@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from .models import *
+from django.db.models import Q # new
+
 def index(request):
     truyens = truyen.objects.all()
     tops = truyen.objects.all().order_by('-view_count')[:3]
@@ -30,3 +32,12 @@ def doc(request):
         'chapters' : chapters,
     }
     return render(request, 'summary/doc.html',context)
+
+def search (request):
+    if request.method == 'GET':
+        search = request.GET.get('scontent')
+        truyens = truyen.objects.filter(Q(title=search) | Q(author=search))
+        context = {
+            'truyens' : truyens,
+        }
+        return render(request, 'home/search.html', context)
