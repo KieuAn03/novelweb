@@ -13,7 +13,8 @@
 {%endblock css_js%}
 {%block body%}
 {% for chapter in chapters  %}
-    <div>
+
+    <div class="bck">
         <div>
             <h1 class="truyen truyen-title">{{chapter.truyen}}</h1> 
             <h2 class="truyen chapter-title">{{chapter.title}}</h2>
@@ -32,7 +33,8 @@
                 </p>
             </div>
         </div>
-    </div>        
+    </div>
+      
         <script>
         id1={{chapter.id}}+1
         id2={{chapter.id}}-1
