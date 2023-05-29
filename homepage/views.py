@@ -5,8 +5,10 @@ from .models import *
 from .forms import CommentForm
 def index(request):
     truyens = truyen.objects.all()
+    tops = truyen.objects.all().order_by('-view_count')[:3]
     context = {
-        'truyens' : truyens
+        'truyens' : truyens,
+        'tops' : tops
     }
     return render(request,'home/index.html',context)
 
@@ -25,7 +27,7 @@ def deltail(request):
     return render(request, 'summary/nav.html',context)
 
 def doc(request):
-    id = request.GET.get('id','') 
+    id = request.GET.get('id')
     chapters = chapter.objects.filter(id = id)
     context = {
         'chapters' : chapters,
