@@ -8,7 +8,7 @@ class CommentInline(admin.StackedInline):
     model = comment
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['truyen','user', 'content' ,'date_published']
+    list_display = ['id','truyen','user', 'content' ,'date_published']
 
 admin.site.register(truyen)
 admin.site.register(chapter,chapterAdmin)
