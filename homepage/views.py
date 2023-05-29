@@ -3,8 +3,13 @@ from django.contrib.auth import authenticate
 from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 from .models import *
+<<<<<<< HEAD
 from .forms import CommentForm
 from datetime import datetime
+=======
+from django.db.models import Q # new
+
+>>>>>>> c6b8b5eb067ae235b34506223ebbbca7bb99ad08
 def index(request):
     truyens = truyen.objects.all()
     tops = truyen.objects.all().order_by('-view_count')[:3]
@@ -33,6 +38,7 @@ def doc(request):
         'chapters' : chapters,
     }
     return render(request, 'summary/doc.html',context)
+<<<<<<< HEAD
                                   
 def add_comment(request):
     pk=request.GET.get('id')
@@ -55,3 +61,14 @@ def add_comment(request):
         'form' : form
     }
     return render(request, "summary/add_cmt.html", context)
+=======
+
+def search (request):
+    if request.method == 'GET':
+        search = request.GET.get('scontent')
+        truyens = truyen.objects.filter(Q(title=search) | Q(author=search))
+        context = {
+            'truyens' : truyens,
+        }
+        return render(request, 'home/search.html', context)
+>>>>>>> c6b8b5eb067ae235b34506223ebbbca7bb99ad08
