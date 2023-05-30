@@ -73,6 +73,7 @@ def add_comment(request):
         'form' : form ,
     }
     return render(request, "summary/add_cmt.html", context)
+
 def delete_comment(request):
     """
     xoá binh luận gần nhất của 1 truyện
@@ -86,14 +87,13 @@ def likeTruyen(request):
     """
     thêm truyện yêu thích
     """
-    data = json.loads(request.body)
-    truyenId = data['truyenId']
-    action = data['action']
-    user = request.user
-    truyen = truyen.objects.get(id=truyenId)
-    favorates, created = favorate.objects.get_or_create(user=user,truyen=truyen)
-    favorates.save()
-    return JsonResponse('added', safe=False)
+    id=request.GET.get('id')
+    users = request.user
+    truyens = truyen.objects.get(id=id)
+    if not favorate.objects.filter(truyen=truyens):
+        c = favorate(truyen=truyens,user=request.user)
+        c.save()
+    return redirect('favorite')
 
 def truyenFavo(request):
     users = request.user
