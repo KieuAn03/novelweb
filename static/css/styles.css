@@ -611,7 +611,6 @@ img, svg {
   }
 
   .tab-pane {
-    color: #333;
     display: none;
   }
   .tab-pane.active {
@@ -633,4 +632,15 @@ img, svg {
 .listlink:hover {
     color: rgb(133, 234, 203);
     transition: 0.1s;
+}
+.tabs_container__o4dw8 {
+    background: var(--tab_comment_background,#08215c);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.btnm{
+    margin: 0 25px;
 }

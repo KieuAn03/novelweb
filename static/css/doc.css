@@ -58,3 +58,9 @@ hr.chapter-start {
     margin: auto 80px;
     font-family: 'Lato', sans-serif;
 }
+.bck{
+    background-color: rgb(231, 227, 180);
+    width: auto;
+    height: auto;
+    margin: auto 20px;
+}
