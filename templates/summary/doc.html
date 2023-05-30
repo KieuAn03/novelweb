@@ -34,21 +34,48 @@
         </div>
     </div>        
         <script>
-        id1={{chapter.id}}+1
-        id2={{chapter.id}}-1
-        
+        const chapter = [];
+        {%for j in listchapers%}
+            chapter.push({{j.id}});
+            console.log({{j.id}})
+        {%endfor%}
+        id1=0;
+        id2=0;
+        id ={{chapter.id}};
+        for(let i=0;i<chapter.length;i++){
+            if(chapter[i]==id){
+                id1=chapter[i+1];
+                id2=chapter[i-1];
+            }
+        }
+      
+
         function chuongtruoc() {
             // Thực hiện hành động khi nhấp vào nút "Chương kế tiếp" ở đây
             // Ví dụ: Chuyển đến trang chương tiếp theo
-            var url = "{% url 'doc' %}?id=" + id2;
-            window.location.href = url;
+            
+            if(id2 !=undefined){
+                var url = "{% url 'doc' %}?id=" + id2;
+                window.location.href = url;
+            }
+            else {
+                var url = "{% url 'doc' %}?id=" + id;
+                window.location.href = url;
+            }
+            
             
         }
         function chuongsau() {
             // Thực hiện hành động khi nhấp vào nút "Chương kế tiếp" ở đây
             // Ví dụ: Chuyển đến trang chương tiếp theo
-            var url = "{% url 'doc' %}?id=" + id1;
-            window.location.href = url;
+            if(id1 != undefined){
+                var url = "{% url 'doc' %}?id=" + id1;
+                window.location.href = url;
+            }else{
+                var url = "{% url 'doc' %}?id=" + id;
+                window.location.href = url;
+            }
+            
             
         }
     </script>
