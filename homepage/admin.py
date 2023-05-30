@@ -15,7 +15,7 @@ class CommentInline(admin.TabularInline):
     model = comment
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['truyen','content','user', 'date_published']
+    list_display = ['id','truyen','content','user', 'date_published']
     list_filter = ['date_published']
     search_fields = ['truyen']
 

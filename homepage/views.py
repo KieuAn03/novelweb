@@ -69,15 +69,29 @@ def add_comment(request):
         thêm bình luận cho 1 truyện
     """
     pk=request.GET.get('id')
-    eachComment = truyen.objects.get(id=pk)
-    form = CommentForm(instance=eachComment) 
+    truyens = truyen.objects.get(id=pk)
+    tr=truyen.objects.filter(id=pk)
+    ct = truyen_category.objects.filter(Truyen = pk)
+    chapters = chapter.objects.filter(truyen = pk)
+    num_chap = chapter.objects.filter(truyen = pk).count()
+    num_cmt = comment.objects.filter(truyen=pk).count()
+    form = CommentForm(instance=truyens)
     if request.method == 'POST':
-        form = CommentForm(request.POST, instance=eachComment)
+        form = CommentForm(request.POST, instance=truyens)
         if form.is_valid():
             body = form.cleaned_data['content']
-            c = comment(truyen=eachComment,user=request.user ,content=body,date_published=datetime.now())
+            c = comment(truyen=truyens,user=request.user ,content=body,date_published=datetime.now())
             c.save()
-            return redirect('homepage')
+            # return HttpResponse(request)
+            context = {
+                'truyens' : tr,
+                'cts': ct,
+                'chapters' : chapters,
+                'num_cmt' : num_cmt,
+                'num_chap' : num_chap,
+            }
+            return render(request, 'summary/nav.html',context)
+            return redirect(url)
         else:
             print('form is invalid')
     else:
@@ -87,14 +101,26 @@ def add_comment(request):
     }
     return render(request, "summary/add_cmt.html", context)
 
-def delete_comment(request):
+def delete_comment(request,id):
     """
     xoá binh luận gần nhất của 1 truyện
     """
     pk=request.GET.get('id')
-    comments = comment.objects.filter(truyen=pk).last()
+    comments = comment.objects.filter(id=id)
     comments.delete()
-    return redirect('homepage')
+    truyens = truyen.objects.filter(id=pk)
+    ct = truyen_category.objects.filter(Truyen = pk)
+    chapters = chapter.objects.filter(truyen = pk)
+    num_chap = chapter.objects.filter(truyen = pk).count()
+    num_cmt = comment.objects.filter(truyen=pk).count()
+    context = {
+        'truyens' : truyens,
+        'cts': ct,
+        'chapters' : chapters,
+        'num_cmt' : num_cmt,
+        'num_chap' : num_chap,
+    }
+    return render(request, 'summary/nav.html',context)
 
 def likeTruyen(request):
     """
