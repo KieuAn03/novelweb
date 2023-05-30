@@ -72,9 +72,7 @@ def add_comment(request):
     truyens = truyen.objects.get(id=pk)
     tr=truyen.objects.filter(id=pk)
     ct = truyen_category.objects.filter(Truyen = pk)
-    chapters = chapter.objects.filter(truyen = pk)
-    num_chap = chapter.objects.filter(truyen = pk).count()
-    num_cmt = comment.objects.filter(truyen=pk).count()
+    chapters = chapter.objects.filter(truyen = pk)    
     form = CommentForm(instance=truyens)
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=truyens)
@@ -83,6 +81,8 @@ def add_comment(request):
             c = comment(truyen=truyens,user=request.user ,content=body,date_published=datetime.now())
             c.save()
             # return HttpResponse(request)
+            num_chap = chapter.objects.filter(truyen = pk).count()
+            num_cmt = comment.objects.filter(truyen=pk).count()
             context = {
                 'truyens' : tr,
                 'cts': ct,
