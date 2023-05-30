@@ -12,25 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="{% static 'js/bootstrap.min.js' %}"></script> 
-    <script type="text/javascript">
-        var user = '{{request.user}}'
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-        const csrftoken = getCookie('csrftoken');
-    </script>
 {%endblock css_js%}
 
 {%block body%}
@@ -110,7 +91,7 @@
                         <span class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_primary__PzUTB  button_buttonTicket__qyP_b !ml-4 !mr-6 !shadow-sm mobile:!border-0 mobile:!text-base mobile:!p-0 mobile:!m-0 mobile:!inline-block mobile:!min-h-0 mobile:!font-normal mobile:capitalize " title="">
                             Chương mới nhất
                         </span>
-                        <button data-truyen={{truyen.id}} data-action= "add" class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_white__jBVlZ button_comicAdd__US2RV update-like ">
+                        <button onclick="window.location.href='{% url 'like_truyen' %}?id={{truyen.id}}'"  class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_white__jBVlZ button_comicAdd__US2RV ">
                             <span class="button_icon__Il1Mq /v1/IcPlus.svg">
                                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                     <path d="M21.697 11.258a1.01 1.01 0 00-.741-.302h-7.912V3.044a1.044 1.044 0 10-2.088 0v7.912H3.044a1.044 1.044 0 100 2.088h7.912v7.912a1.044 1.044 0 102.088 0v-7.912h7.912a1.049 1.049 0 00.741-1.786z"></path>
@@ -300,7 +281,6 @@
     </div>
 </div>  
 {% endfor %}
-    <script src="{% static 'js/like.js' %}"></script> 
     <script>
         const $ = document.querySelector.bind(document);
         const $$ = document.querySelectorAll.bind(document);
