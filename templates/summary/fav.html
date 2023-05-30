@@ -14,7 +14,8 @@
 {%endblock css_js%}
 
 {% block body %}
-<div class="tabs_container__o4dw7 tab-pane active">
+        <div>
+            <div class="tabs_container__o4dw8 ">
                 <div class="tabs_main__RQyVN">
                     <div class="tabs_content__ebqwH  tabs_isActive___mQed tab-active">
                         <div>
@@ -49,7 +50,7 @@
                                         <p class="font-normal desktopLg:text-sm card-line_text__O92Ae pt-2  undefined">{{favorate.user}}</p>
                                     </div>
                                     <div class="flex flex-wrap text-right undefined ">
-                                        <div class="text-sm desktop:text-xl text-right uppercase align-middle flex items-center justify-end card-line_extra__6TxUD" style="padding: 1.5rem">Miễn phí</div>
+                                        <button onclick="window.location.href='{% url 'delete-favo' %}?id={{favorate.id}}'" type="button" class="btn btn-danger btnm">Xoá khỏi yêu thích</button>
                                     </div>
                                 </div>
                             </div>
@@ -63,4 +64,5 @@
                 <div class="tabs_content__ebqwH  ">
                 </div>
             </div>
+        </div>
 {% endblock body %}
