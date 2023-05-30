@@ -31,7 +31,10 @@ def deltail(request):
     hàm lấy dữ liệu thể loại, tên truyện, số chương, chương truyện, để đưa lên web
     """
     id = request.GET.get('id','') 
-    truyens = truyen.objects.filter(id=id)
+    truyens = truyen.objects.filter(id=id) 
+    tr = truyen.objects.get(id=id)
+    tr.view_count=tr.view_count+1
+    tr.save()   
     ct = truyen_category.objects.filter(Truyen = id)
     chapters = chapter.objects.filter(truyen = id)
     num_chap = chapter.objects.filter(truyen = id).count()
