@@ -15,5 +15,6 @@ urlpatterns = [
     path("favorite/", views.truyenFavo, name="favorite"),
     path("doc/", views.doc, name="doc"),
     path("search/", views.search, name="search"),
+    path("delete-favo", views.delete_favo, name="delete-favo"),
 ]
  

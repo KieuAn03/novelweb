@@ -112,3 +112,11 @@ def search (request):
         }
         return render(request, 'home/search.html', context)
 
+def delete_favo(request):
+    """
+    xoá truyện khỏi mục yêu thích
+    """
+    id=request.GET.get('id')
+    favorates = favorate.objects.filter(id=id)
+    favorates.delete()
+    return redirect('favorite')
