@@ -85,12 +85,12 @@
                         </div>
                     </div>
                     <div class="flex items-center mb-10 index_desktop_btns__xkQWG desktop:flex-wrap">
-                        <span class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_primary__PzUTB banner-comic__read-now " title="">
-                            Đọc ngay
-                        </span>
-                        <span class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_primary__PzUTB  button_buttonTicket__qyP_b !ml-4 !mr-6 !shadow-sm mobile:!border-0 mobile:!text-base mobile:!p-0 mobile:!m-0 mobile:!inline-block mobile:!min-h-0 mobile:!font-normal mobile:capitalize " title="">
+                        <button onclick="docngay()" class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_primary__PzUTB banner-comic__read-now " title="">
+                            Đọc ngay                                
+                        </button>                        
+                        <button onclick="chuongmoinhat()" class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_primary__PzUTB  button_buttonTicket__qyP_b !ml-4 !mr-6 !shadow-sm mobile:!border-0 mobile:!text-base mobile:!p-0 mobile:!m-0 mobile:!inline-block mobile:!min-h-0 mobile:!font-normal mobile:capitalize " title="">
                             Chương mới nhất
-                        </span>
+                        </button>
                         {% if user.username %}
                             <button onclick="window.location.href='{% url 'like_truyen' %}?id={{truyen.id}}'"  class=" inline-flex no-underline cursor-pointer border border-solid border-transparent items-center align-top justify-center rounded font-bold uppercase text-center mr-2 relative button_button__r6wnz  desktopLg:font-normal desktopLg:text-xl desktop:py-2 desktop:px-5 desktopLg:py-3 desktopLg:px-8 button_regular__F7E74 button_white__jBVlZ button_comicAdd__US2RV ">
                                 <span class="button_icon__Il1Mq /v1/IcPlus.svg">
@@ -212,7 +212,7 @@
                                         <div class="text-sm desktop:text-xl text-right uppercase align-middle flex items-center justify-end card-line_extra__6TxUD" style="padding: 1.5rem">Miễn phí</div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                        
                             {% endfor %}
                         </div>
                         <div class="p-7 text-center w-full tabs_heading__hnB1c">
@@ -285,7 +285,30 @@
         </div>      
     </div>
 </div>  
+    <script>
+        const chapter = [];
+        i=0;
+        {%for j in chapters%}
+            chapter.push({{j.id}});
+            console.log({{j.id}})
+            i=i+1;
+        {%endfor%}
+        
+        function docngay() {
+            id=chapter[0];
+            var url = "{% url 'doc' %}?id=" + id;
+            window.location.href = url;                   
+            
+        }
+
+        function chuongmoinhat() {
+            id=chapter[i-1];
+            var url = "{% url 'doc' %}?id=" + id;
+            window.location.href = url; 
+        }
+    </script>
 {% endfor %}
+    
     <script>
         const $ = document.querySelector.bind(document);
         const $$ = document.querySelectorAll.bind(document);
