@@ -90,7 +90,7 @@ def likeTruyen(request):
     id=request.GET.get('id')
     users = request.user
     truyens = truyen.objects.get(id=id)
-    if not favorate.objects.filter(truyen=truyens):
+    if not favorate.objects.filter(truyen=truyens,user=users):
         c = favorate(truyen=truyens,user=request.user)
         c.save()
     return redirect('favorite')
