@@ -16,8 +16,11 @@ import json
 from django.db.models import Q # new
 from django.core.paginator import Paginator
 
-
+#trang chu
 def index(request):
+    """
+    Hiển thị danh mục truyện
+    """
     truyens = truyen.objects.all()
     tops = truyen.objects.all().order_by('-view_count')[:3]
     context = {
@@ -25,7 +28,9 @@ def index(request):
         'tops' : tops
     }
     return render(request,'home/index.html',context)
+#####################
 
+#trang chi tiet truyen
 def deltail(request):
     """
     hàm lấy dữ liệu thể loại, tên truyện, số chương, chương truyện, để đưa lên web
@@ -47,7 +52,9 @@ def deltail(request):
         'num_chap' : num_chap,
     }
     return render(request, 'summary/nav.html',context)
+###########################
 
+# trang doc truyen
 def doc(request):
     
     """
@@ -64,7 +71,7 @@ def doc(request):
      
     }
     return render(request, 'summary/doc.html',context)
-
+######################################################
 
 # add comment and delete comment
 def add_comment(request):
@@ -124,7 +131,8 @@ def delete_comment(request,id):
         'num_chap' : num_chap,
     }
     return render(request, 'summary/nav.html',context)
-
+##############################################
+#Truyen yeu thich
 def likeTruyen(request):
     """
     thêm truyện yêu thích
@@ -138,6 +146,9 @@ def likeTruyen(request):
     return redirect('favorite')
 
 def truyenFavo(request):
+    """
+    Hiển thị danh sách truyện yêu thích
+    """
     users = request.user
     favorates = favorate.objects.filter(user=users)
     context = {
@@ -145,6 +156,16 @@ def truyenFavo(request):
     }
     return render(request,'summary/fav.html',context)
 
+def delete_favo(request):
+    """
+    xoá truyện khỏi mục yêu thích
+    """
+    id=request.GET.get('id')
+    favorates = favorate.objects.filter(id=id)
+    favorates.delete()
+    return redirect('favorite')
+#######################################
+#Tim kiem truyen
 def search (request):
     if request.method == 'GET':
         search = request.GET.get('scontent')
@@ -157,12 +178,4 @@ def search (request):
         }
         return render(request, 'home/search.html', context)
 
-
-def delete_favo(request):
-    """
-    xoá truyện khỏi mục yêu thích
-    """
-    id=request.GET.get('id')
-    favorates = favorate.objects.filter(id=id)
-    favorates.delete()
-    return redirect('favorite')
+##########################################
