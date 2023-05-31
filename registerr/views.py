@@ -39,12 +39,12 @@ def loginpage(request):
         uname = request.POST.get('username')
         paswrd = request.POST.get('password')
         user = authenticate(request, username=uname, password=paswrd)
-        print (user.username, user.password)
+       
         if user is not None:
             login(request,user)
             return redirect(homepage.views.index)
         else:
-            return HttpResponse ("Username or Password is incorrect!!!")
+            return redirect(views.loginpage)
     return render(request, 'home/login.html')
 #################################
 
