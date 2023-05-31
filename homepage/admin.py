@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-
+#Thiết kế hiển thị dữ liệu trong trang admin
 class chapterAdmin(admin.ModelAdmin):
     list_display = ['truyen','title','id']    
     list_filter = ['truyen']
@@ -32,7 +32,7 @@ class cateAdmin(admin.ModelAdmin):
 class truyenmAdmin(admin.ModelAdmin):
     list_display = ['title','author','date_published','view_count']
     list_filter = ['author']
-
+##########################
     
 
 admin.site.register(truyen,truyenmAdmin)

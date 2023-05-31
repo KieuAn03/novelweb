@@ -5,8 +5,13 @@ from django.http import HttpResponse
 from. import views
 
 # Create your views here.
+
+# Dang ki tai khoan
 import homepage
 def SignupPage(request):
+    """
+    đăng kí tài khoản
+    """
     if request.method=='POST':
         uname=request.POST.get('username')
         email=request.POST.get('email')
@@ -23,8 +28,13 @@ def SignupPage(request):
 
 
     return render (request,'home/register.html')
+#############################
 
+#Dang nhap tai khoan
 def loginpage(request):
+    """
+    Đăng nhập
+    """
     if request.method == 'POST':
         uname = request.POST.get('username')
         paswrd = request.POST.get('password')
@@ -36,7 +46,12 @@ def loginpage(request):
         else:
             return HttpResponse ("Username or Password is incorrect!!!")
     return render(request, 'home/login.html')
+#################################
 
+#dang xuat
 def LogoutPage(request):
+    """
+    đăng xuất
+    """
     logout(request)
     return redirect(views.loginpage)
